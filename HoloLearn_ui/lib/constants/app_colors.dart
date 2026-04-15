@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+
+class AppColors {
+  AppColors._();
+
+//Color(0xFF433EA0) ;
+  /// Primary blue - Used for main buttons, highlights, and branding
+  static const Color primaryColor = Color(0xFF2562EB) ;
+
+  /// Secondary blue - Used for accents and secondary elements
+  static const Color secondaryColor = Color(0xFF433EA0);
+
+  /// Light background - Used for cards, containers, and light surfaces
+  static const Color lightBackground = Color.fromARGB(255, 229, 235, 250);
+
+  /// Neutral gray - Used for subtle text, borders, and disabled states
+  static const Color gray = Color(0xFFB1AAAF);
+
+  /// Text colors for different hierarchy levels
+  static const Color textBlack = Color(0xFF000000);
+  static const Color textBlue = Color(0xFF433EA0);
+  static const Color textLight = Color(0xFFB1AAAF);
+
+  /// White for contrast
+  static const Color white = Color(0xFFFFFFFF);
+
+  /// Error/Warning colors
+  static const Color error = Color(0xFFD32F2F);
+  static const Color success = Color(0xFF388E3C);
+}

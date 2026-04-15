@@ -1,0 +1,189 @@
+import 'package:flutter/material.dart';
+
+import '../constants/app_colors.dart';
+import '../constants/app_styles.dart';
+
+enum ButtonType {
+  primary, // blue button
+  secondary, //white button
+  outlined,
+}
+
+class CustomButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final ButtonType buttonType;
+  final bool fullWidth;
+  final bool isLoading;
+  const CustomButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.buttonType = ButtonType.primary,
+    this.fullWidth = false,
+    this.isLoading = false,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Widget button;
+
+    switch (buttonType) {
+      case ButtonType.primary:
+        button = ElevatedButton(
+          onPressed: onPressed,
+          style: AppStyles.primaryButton,
+          child: Text(isLoading ? "Loading..." : text, style: AppStyles.button),
+        );
+        break;
+
+      case ButtonType.secondary:
+        button = ElevatedButton(
+          onPressed: onPressed,
+          style: AppStyles.secondaryButton,
+          child: Text(
+            isLoading ? "Loading..." : text,
+            style: AppStyles.button.copyWith(color: AppColors.primaryColor),
+          ),
+        );
+        break;
+
+      case ButtonType.outlined:
+        button = OutlinedButton(
+          onPressed: onPressed,
+          style: AppStyles.outlinedButton,
+          child: Text(
+            isLoading ? "Loading..." : text,
+            style: AppStyles.button.copyWith(color: AppColors.secondaryColor),
+          ),
+        );
+        break;
+    }
+
+    return fullWidth ? SizedBox(width: double.infinity, child: button) : button;
+  }
+}
+
+// Keep your other widgets as they are useful
+class IconsButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final IconData icon;
+  final Color iconColor;
+  final Color backgroundColor;
+  final double size;
+
+  const IconsButton({
+    super.key,
+    required this.onPressed,
+    required this.icon,
+    this.iconColor = Colors.white,
+    this.backgroundColor = Colors.blue,
+    this.size = 48.0,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: size,
+        height: size,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          shape: BoxShape.circle,
+        ),
+        child: Icon(icon, color: iconColor, size: size * 0.5),
+      ),
+    );
+  }
+}
+
+class CustomDropdown extends StatelessWidget {
+  final String label;
+  final bool isFieldRequired;
+  final List<String> items;
+  final String? selectedValue;
+  final String? hintText;
+  final String? Function(String?)? validator;
+  final Function(String?) onChanged;
+  final bool enabled;
+
+  const CustomDropdown({
+    super.key,
+    required this.label,
+    required this.items,
+    required this.onChanged,
+    this.validator,
+    this.isFieldRequired = true,
+    this.selectedValue,
+    this.hintText,
+    this.enabled = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        RichText(
+          text: TextSpan(
+            text: label,
+            style: AppStyles.labelStyle,
+            children: isFieldRequired
+                ? [
+                    TextSpan(
+                      text: ' *',
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ]
+                : null,
+          ),
+        ),
+        SizedBox(height: AppStyles.spacingM),
+        DropdownButtonFormField<String>(
+          value: selectedValue,
+          validator: validator,
+          // enabled: enabled,
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: AppColors.white,
+            hintText: hintText,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppStyles.radiusM),
+              borderSide: BorderSide(
+                color: AppColors.gray.withOpacity(0.3),
+                width: 1,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppStyles.radiusM),
+              borderSide: BorderSide(
+                color: AppColors.gray.withOpacity(0.3),
+                width: 1,
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(AppStyles.radiusM),
+              borderSide: const BorderSide(
+                color: AppColors.primaryColor,
+                width: 2,
+              ),
+            ),
+            contentPadding: const EdgeInsets.symmetric(
+              horizontal: AppStyles.spacingM,
+              vertical: AppStyles.spacingM,
+            ),
+          ),
+          items: items.map((String item) {
+            return DropdownMenuItem<String>(
+              value: item,
+              child: Text(item, style: AppStyles.bodyMedium),
+            );
+          }).toList(),
+          onChanged: enabled ? onChanged : null,
+          style: AppStyles.bodyMedium,
+        ),
+      ],
+    );
+  }
+}

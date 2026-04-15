@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Splash theme -->
+    <style name="LaunchTheme" parent="Theme.SplashScreen">
+        <!-- Background color -->
+        <item name="windowSplashScreenBackground">@color/primary</item>
+
+        <!-- Remove icon -->
+        <item name="windowSplashScreenAnimatedIcon">@null</item>
+
+        <!-- Optional: fallback for older behavior -->
+        <item name="android:windowBackground">@color/primary</item>
+    </style>
+
+    <!-- Normal app theme -->
+    <style name="NormalTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+
+</resources>
