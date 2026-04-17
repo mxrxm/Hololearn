@@ -13,6 +13,9 @@ HoloLearn is an AI-powered interactive learning platform that transforms traditi
 | `Assignment02/` | Problem Statement and Solution Ideation | [Open](https://github.com/mxrxm/Hololearn/blob/main/HoloLearn%20Problem%20Statement%20Ideation.pdf) |
 | `Assignment02/` | Wireframes, UI/UX Design | [Open](https://www.figma.com/design/U5vrAc0fYrHyKHGhe9WZL1/Hologram-UI-UX?node-id=921-207) |
 | `Assignment03/` | Code, Implemented Screens with Navigation | [Open](https://github.com/mxrxm/Hololearn/tree/main/HoloLearn_ui) |
+| `Presentation` | Presentaion including the implemented assignments so far | [Open](https://github.com/mxrxm/Hololearn/blob/main/HoloLearn-Presentation.pptx) |
+| `Demo` | Mobile App Demo Video | [Open](https://github.com/mxrxm/Hololearn/blob/main/demo_mobile_app.mp4) |
+
 
 
 
