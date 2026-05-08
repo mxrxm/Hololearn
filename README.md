@@ -17,6 +17,7 @@ HoloLearn is an AI-powered interactive learning platform that transforms traditi
 | `Demo` | Mobile App Demo Video | [Open](https://github.com/mxrxm/Hololearn/blob/main/demo_mobile_app.mp4) |
 |`Project Report`| Complete Report with ux frontend and backend phases |[Open](https://github.com/mxrxm/Hololearn/blob/main/report_mobile_app.docx)|
 |`Behance`| Deployed project on behance |[Open](https://www.behance.net/gallery/248895983/HoloLearn-Mobile-App)|
+| `Final Demo` | Mobile App Demo Video | [Open](https://github.com/mxrxm/Hololearn/blob/main/Mobile_app_demo_final.mp4) |
 
 
 
